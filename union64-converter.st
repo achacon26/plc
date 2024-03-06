@@ -8,40 +8,40 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////
 TYPE unX64 :
 UNION
-	lw:	LWORD;					// 1x 64Bit
+	lw:	LWORD;			// 1x 64Bit
 	adw:	ARRAY[0..1] OF DWORD;	// 2x 32Bit
 	aw:	ARRAY[0..3] OF WORD;	// 4x 16Bit
 	ab:	ARRAY[0..7] OF BYTE;	// 8x  8bit
 	
-	uli:	ULINT;					// 1x 64Bit unsigned INT
+	uli:	ULINT;			// 1x 64Bit unsigned INT
 	audi:	ARRAY[0..1] OF UDINT;	// 2x 32Bit unsigned INT
 	aui:	ARRAY[0..3] OF UINT;	// 4x 16Bit unsigned INT
 	ausi:	ARRAY[0..7] OF USINT;	// 8x  8bit unsigned INT
 	
-	li:	LINT;					// 1x 64Bit signed INT
+	li:	LINT;			// 1x 64Bit signed INT
 	adi:	ARRAY[0..1] OF DINT;	// 2x 32Bit signed INT
-	ai:		ARRAY[0..3] OF INT;		// 4x 16Bit signed INT
+	ai:	ARRAY[0..3] OF INT;	// 4x 16Bit signed INT
 	asi:	ARRAY[0..7] OF SINT;	// 8x  8bit signed INT
 	
-	lr:	LREAL;					// 1x 64Bit REAL
+	lr:	LREAL;			// 1x 64Bit REAL
 	ar:	ARRAY[0..1] OF REAL;	// 2x 32Bit REAL
 END_UNION
 END_TYPE
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 VAR
-	awData: ARRAY [0..1] OF WORD;
-	rVar:REAL;
+	awData:	ARRAY [0..1] OF WORD;
+	rVar:	REAL;
 END_VAR
 
 VAR_TEMP
-	_unX64				: unX64;	// Type converter;
+	_unX64:	unX64;			// Type converter;
 END_VAR
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // rVar
 _unX64.aw[0]	:= awData[0]; 
 _unX64.aw[1]	:= awData[1]; 
-rVar 	:= _unX64.ar[0];
+rVar 		:= _unX64.ar[0];
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
