@@ -1,4 +1,4 @@
-# Usefull Links
+# Useful Links
 ```
 [How To:  Update PFC Firmware](https://github.com/WAGO/pfc-firmware)
 [How To: Create a self installing SD Card](https://www.wago.community/t/how-to-create-a-self-installing-sd-card-aka-magic-sd/280/1)
