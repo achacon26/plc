@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 cd /tmp || exit
-workdir /tmp || exit
 
 node_version=$1
 install_folder=$2
