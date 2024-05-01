@@ -24,7 +24,7 @@ rm -f node-v"$node_version"-linux-armv7l.tar.xz
 echo "Deploing NodeJS files..."
 rm -Rf "$install_folder"/local/node
 mkdir -p "$install_folder"/local/node || exit
-mv ./node-v"$node_version"-linux-armv7l "$install_folder"/local/node
+mv ./node-v"$node_version"-linux-armv7l/* "$install_folder"/local/node
 rm -Rf node-v"$node_version"-linux-armv7l
 rm -f /usr/bin/node
 ln -s "$install_folder"/local/node/bin/node /usr/bin/node
