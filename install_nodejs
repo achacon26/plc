@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+node_version=$@
+
+if [ -z "$node_version" ]
+then
+        read -p "Please insert the NodeJS version: " node_version
+fi
+
+echo "Installing NodeJS v$node_version..."
+
+rm node-v$node_version-linux-armv7l.tar.xz
+rm -Rf /usr/local/node
+rm -Rf node-v$node_version-linux-armv7l
+rm /usr/bin/node
+rm /usr/bin/npm
+
+wget wget https://nodejs.org/dist/v$node_version/node-v$node_version-linux-armv7l.tar.xz
+echo "Unzipping node-v$node_version-linux-armv7l.tar.xz..."
+tar -xJvf node-v$node_version-linux-armv7l.tar.xz
+
+mv node-v$node_version-linux-armv7l /usr/local/node
+ln -s /usr/local/node/bin/node /usr/bin/node
+ln -s /usr/local/node/bin/npm /usr/bin/npm
+
+echo "Installing libatomic1..."
+
+rm -Rf ./usr
+rm /usr/lib/libatomic*
+rm data.tar.xz
+rm control.tar.xz
+rm -Rf debian-binary
+
+wget http://ftp.au.debian.org/debian/pool/main/g/gcc-14/libatomic1_14-20240429-1_armhf.deb
+ar x libatomic1_14-20240429-1_armhf.deb
+
+echo "Unzipping libatomic..."
+tar -xJvf data.tar.xz
+
+mv ./usr/lib/arm-linux-gnueabihf/* /usr/lib/
+
+node -v
+npm -v
+npx -v
+
+echo "NodeJS v$node_version instalation finalized."
+
+
