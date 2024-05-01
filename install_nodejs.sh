@@ -44,8 +44,8 @@ rm -f control.tar.xz
 rm -Rf debian-binary
 
 echo "Deploing libatomic1 files..."
-rm -f $install_folder/lib/libatomic*
-mv ./usr/lib/arm-linux-gnueabihf/* $install_folder/lib/
+rm -f /usr/lib/libatomic*
+mv ./usr/lib/arm-linux-gnueabihf/* /usr/lib/
 rm -Rf ./usr
 
 echo "Checking NodeJS version:"
