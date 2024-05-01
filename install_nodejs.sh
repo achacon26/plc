@@ -24,11 +24,11 @@ echo "Deploing NodeJS files..."
 rm -Rf $install_folder/local/node
 mv node-v$node_version-linux-armv7l $install_folder/local/node
 rm -Rf node-v$node_version-linux-armv7l
-rm -f $install_folder/bin/node
+rm -f /usr/bin/node
 ln -s $install_folder/local/node/bin/node /usr/bin/node
-rm -f $install_folder/bin/npm
+rm -f /usr/bin/npm
 ln -s $install_folder/local/node/bin/npm /usr/bin/npm
-rm -f $install_folder/bin/npx
+rm -f /usr/bin/npx
 ln -s $install_folder/local/node/bin/npx /usr/bin/npx
 
 echo "Installing libatomic1..."
