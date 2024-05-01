@@ -20,3 +20,7 @@ Sydney:AEST-10AEDT,M10.1.0,M4.1.0/3
 Perth:AWST-8
 Brisbane:AEST-10
 ```
+# Install NodeJS
+```
+"wget -qO - https://github.com/achacon26/plc/raw/main/install_nodejs.sh | bash -s [[node_version_to_install]]" // Replace [[node_version_to_install]] by desired version
+```
