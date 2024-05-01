@@ -1,0 +1,8 @@
+wget https://nodejs.org/dist/v20.12.2/node-v20.12.2-linux-armv7l.tar.xz
+tar -xvf node-v20.12.2-linux-armv7l.tar.xz
+
+
+sudo mv node-v20.12.2-linux-armv7l /usr/local/node
+sudo ln -s /usr/local/node/bin/node /usr/bin/node
+sudo ln -s /usr/local/node/bin/npm /usr/bin/npm
+
