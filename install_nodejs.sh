@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+cd /tmp
 
 node_version=$1
 install_folder=$2
@@ -10,19 +11,19 @@ fi
 
 if [ -z "$install_folder" ]
 then
-	install_folder="/usr"
+    install_folder="/usr"
 fi
 
 echo "Installing NodeJS v$node_version..."
 
 wget https://nodejs.org/dist/v$node_version/node-v$node_version-linux-armv7l.tar.xz
 echo "Unzipping node-v$node_version-linux-armv7l.tar.xz..."
-tar -xJf node-v$node_version-linux-armv7l.tar.xz
+tar -xJf ./node-v$node_version-linux-armv7l.tar.xz
 rm -f node-v$node_version-linux-armv7l.tar.xz
 
 echo "Deploing NodeJS files..."
 rm -Rf $install_folder/local/node
-mv node-v$node_version-linux-armv7l $install_folder/local/node
+mv ./node-v$node_version-linux-armv7l $install_folder/local/node
 rm -Rf node-v$node_version-linux-armv7l
 rm -f /usr/bin/node
 ln -s $install_folder/local/node/bin/node /usr/bin/node
@@ -34,7 +35,7 @@ ln -s $install_folder/local/node/bin/npx /usr/bin/npx
 echo "Installing libatomic1..."
 
 wget http://ftp.au.debian.org/debian/pool/main/g/gcc-14/libatomic1_14-20240429-1_armhf.deb
-ar x libatomic1_14-20240429-1_armhf.deb
+ar x ./libatomic1_14-20240429-1_armhf.deb
 rm -f libatomic1_14-20240429-1_armhf.deb
 
 echo "Unzipping libatomic..."
