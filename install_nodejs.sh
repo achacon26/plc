@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 
-node_version=$@
+node_version=$1
+install_folder=$2
 
 if [ -z "$node_version" ]
 then
     read -p "Please insert the NodeJS version: " node_version
 fi
 
-echo "Installing NodeJS v$node_version..."
+if [ -z "$install_folder" ]
+then
+	install_folder="/usr"
+fi
 
+echo "Installing NodeJS v$node_version..."
 
 wget https://nodejs.org/dist/v$node_version/node-v$node_version-linux-armv7l.tar.xz
 echo "Unzipping node-v$node_version-linux-armv7l.tar.xz..."
@@ -16,15 +21,15 @@ tar -xJf node-v$node_version-linux-armv7l.tar.xz
 rm node-v$node_version-linux-armv7l.tar.xz
 
 echo "Deploing NodeJS files..."
-rm -Rf /usr/local/node
-mv node-v$node_version-linux-armv7l /usr/local/node
+rm -Rf $install_folder/local/node
+mv node-v$node_version-linux-armv7l $install_folder/local/node
 rm -Rf node-v$node_version-linux-armv7l
-rm /usr/bin/node
-ln -s /usr/local/node/bin/node /usr/bin/node
-rm /usr/bin/npm
-ln -s /usr/local/node/bin/npm /usr/bin/npm
-rm /usr/bin/npx
-ln -s /usr/local/node/bin/npx /usr/bin/npx
+rm $install_folder/bin/node
+ln -s $install_folder/local/node/bin/node /usr/bin/node
+rm $install_folder/bin/npm
+ln -s $install_folder/local/node/bin/npm /usr/bin/npm
+rm $install_folder/bin/npx
+ln -s $install_folder/local/node/bin/npx /usr/bin/npx
 
 echo "Installing libatomic1..."
 
@@ -39,8 +44,8 @@ rm control.tar.xz
 rm -Rf debian-binary
 
 echo "Deploing libatomic1 files..."
-rm /usr/lib/libatomic*
-mv ./usr/lib/arm-linux-gnueabihf/* /usr/lib/
+rm $install_folder/lib/libatomic*
+mv ./usr/lib/arm-linux-gnueabihf/* $install_folder/lib/
 rm -Rf ./usr
 
 echo "Checking NodeJS version:"
