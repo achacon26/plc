@@ -10,7 +10,7 @@ fi
 echo "Installing NodeJS v$node_version..."
 
 
-wget wget https://nodejs.org/dist/v$node_version/node-v$node_version-linux-armv7l.tar.xz
+wget https://nodejs.org/dist/v$node_version/node-v$node_version-linux-armv7l.tar.xz
 echo "Unzipping node-v$node_version-linux-armv7l.tar.xz..."
 tar -xJf node-v$node_version-linux-armv7l.tar.xz
 rm node-v$node_version-linux-armv7l.tar.xz
