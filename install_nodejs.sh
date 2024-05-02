@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#! /bin/bash
 cd /tmp || exit
 
 node_version=$1
