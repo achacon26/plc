@@ -20,6 +20,7 @@ Adelaide: ACST-9:30ACDT,M10.1.0,M4.1.0/3
 Sydney:AEST-10AEDT,M10.1.0,M4.1.0/3
 Perth:AWST-8
 Brisbane:AEST-10
+ACT :AEST-10AEDT,M10.1.0,M4.1.0/3
 ```
 # Install NodeJS
 ```
